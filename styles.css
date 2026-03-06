@@ -3,8 +3,6 @@
    Moderní web základní školy
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-
 :root {
     /* Spacing scale (8px base) */
     --space-1: 0.25rem;   /* 4px */
@@ -541,6 +539,56 @@ a:focus-visible {
     gap: var(--space-6);
 }
 
+/* Karty s fotkami — foto u příslušného bloku (desktop i mobil) */
+.card-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-16);
+}
+
+.card-with-photo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.card-with-photo img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+/* Bloky textu s fotkami (o-nas) */
+.content-photo-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-16);
+}
+
+.content-with-photo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.content-with-photo img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+.content-with-photo .content-block {
+    margin: 0;
+}
+
+.content-with-photo .content-block p {
+    margin-bottom: 0;
+}
+
 .card {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
@@ -790,6 +838,13 @@ a:focus-visible {
     .header-inner {
         padding: 0 var(--space-6);
     }
+    .card-photo-grid,
+    .content-photo-blocks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .content-with-photo--image-only {
+        grid-column: 1 / -1;
+    }
     .hero h1 {
         max-width: 100%;
     }
@@ -937,13 +992,14 @@ a:focus-visible {
         margin-top: var(--space-10);
         padding-top: var(--space-6);
     }
-    .photo-grid {
+    .card-photo-grid,
+    .content-photo-blocks {
         grid-template-columns: 1fr;
-        gap: var(--space-4);
         margin-top: var(--space-8);
-        margin-bottom: var(--space-8);
+        gap: var(--space-6);
     }
-    .photo-grid img {
+    .card-with-photo img,
+    .content-with-photo img {
         height: 200px;
     }
     .map-container {
